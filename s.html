@@ -33,14 +33,17 @@
 		            src="https://music.163.com/song/media/outer/url?id=1994955842.mp3">
 		</audio>
 		<script>
+			var myIn;
 			window.onload = function(){
-				setInterval("toggleSound()",1);
+				myIn = setInterval("toggleSound()",1);
 			}
 			function toggleSound() {
 				var music = document.getElementById("music");//获取ID  
 				if (music.paused) { //判读是否播放  
 					music.paused=false;
 					music.play(); //没有就播放 
+				}else {
+					clearInterval(myIn);
 				}    
 			}
 			//--创建页面监听，等待微信端页面加载完毕 触发音频播放
